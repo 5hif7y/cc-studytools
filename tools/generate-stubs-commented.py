@@ -64,7 +64,7 @@ import sys
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # DONDE ESTAN LOS CATALOGOS (`tipos-del-juego.txt` y compania, ~5,5 MB) y la lista
-# de clases. **No se distribuyen**: son DERIVADOS -- `u3pack tipos` volcando los
+# de clases. **No se distribuyen**: son DERIVADOS -- `ue3-packer types` volcando los
 # paquetes del juego -- y los paquetes tampoco se distribuyen. Aqui apuntan al
 # lado del propio guion, que es donde los pondria quien los genere; en ESTE
 # proyecto se pasan con `--datos tools`.
@@ -2647,12 +2647,12 @@ def parte_miembros(cuerpo):
 # ---------------------------------------------------------------------------
 # LOS TIPOS QUE SOLO TIENE EL MOTOR DEL JUEGO
 #
-# `tools/tipos-del-juego.txt` lo genera `u3pack tipos` sobre los paquetes del
+# `tools/tipos-del-juego.txt` lo genera `ue3-packer types` sobre los paquetes del
 # juego -- la version que SI tenia los tipos que al SDK le faltan -- y trae, por
 # cada exportacion: **genero, nombre y contenedor**. Con el contenedor se reunen
 # los MIEMBROS de un struct, **en su orden de declaracion**.
 #
-# La leccion que costo llegar aqui: `u3pack clases` **solo lista clases**, y su
+# La leccion que costo llegar aqui: `ue3-packer clases` **solo lista clases**, y su
 # ausencia se leia como «no existe». Seis tipos que se creian perdidos estaban
 # en el juego, como `ScriptStruct`, con todos sus miembros.
 # ---------------------------------------------------------------------------
@@ -2689,7 +2689,9 @@ SIN_TIPO = {"StructProperty", "ArrayProperty"}
 # El turno 3 solo miro el primero, y de ahi que seis tipos siguieran sin
 # declararse: `ItemContextMenuDesc`, `WeaponCarrySlotRBDesc`, `TurretFireInfo`,
 # `ENPCQuestTrackingState` y `SkelControlDestLocation` **no estan en el motor**,
-# estan en el paquete del juego. Medido con `u3pack tipos` sobre `CrimeCraft.u`,
+# estan en el paquete del juego. Medido con `ue3-packer types` sobre `CrimeCraft.u`,
+
+
 # los cinco aparecen con su genero y su dueno.
 #
 # Los dos se leen EN ESTE ORDEN, y el orden importa poco porque los generos se

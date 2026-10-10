@@ -139,7 +139,7 @@ transient_map 7392 11 tablas OK
 **Cannot see:** what is *inside* each object — that is per-class and lives in the
 class's own serializer. It reads the container, not the contents.
 
-**Falsifies itself:** the four identities in `UE3-PACKAGE-FORMAT.md` § 3. On a
+**Falsifies itself:** the four identities in `CC-PACKAGE-FORMAT.md` § 3. On a
 malformed file it reports the broken check rather than returning plausible numbers.
 
 ---
@@ -538,7 +538,7 @@ runs, with a **different constant**. Two very different explanations fit:
 prints the column so it can be read.
 
 > **And this paragraph used to point at a section that did not contain it.** It said the
-> prefix *"stands among the open questions of `UE3-PACKAGE-FORMAT.md` § 8"* — **and § 8
+> prefix *"stands among the open questions of `CC-PACKAGE-FORMAT.md` § 8"* — **and § 8
 > listed five unknowns, none of them this one.** A cross-reference to an absence reads as a
 > citation and is worth nothing. **§ 8 now carries it**, where it belonged: it is the
 > boundary rule `probe-properties.py` needs and cannot yet meet.
@@ -554,7 +554,7 @@ $ python -I cc-studytools/tools/probe-prefix.py CrimeCraft/CrimeCraftGame/Cooked
 ## `probe-tables.py` — **(B), and its question is now answered**
 
 **Answers:** *what are the layouts of the import and export tables?* — **answered, and now
-written up in `UE3-PACKAGE-FORMAT.md` § 4.** Kept because the measurement is the artifact.
+written up in `CC-PACKAGE-FORMAT.md` § 4.** Kept because the measurement is the artifact.
 
 **Cannot see:** it reports the two quotients that **bound** the tables; it does **not**
 validate each record. **A table of the right total size can still be read with the wrong
@@ -936,7 +936,7 @@ the answer is the artifact, not the tool.
 stubs → measure how far that got.*
 
 ```
-u3pack tipos  ──▶ generate-game-catalog.py ──▶ generate-stubs.py ──▶ compila-stubs.sh
+ue3-packer types  ──▶ generate-game-catalog.py ──▶ generate-stubs.py ──▶ compila-stubs.sh
    (external)          (filter)                 (declare)          (verdict)
                                                       │                 │
                                                 progress.py        cdb-…  (when it crashes)
@@ -1008,11 +1008,11 @@ follows the rewrite rule on its own.
 
 **Run:**
 ```bash
-u3pack tipos <package>.u > raw.txt
+ue3-packer types <package>.u > raw.txt
 python cc-studytools/tools/generate-game-catalog.py raw.txt tools/tipos-crimecraft.txt
 ```
 
-`u3pack tipos` dumps **one line per export**, and almost all of the 185,659 in
+`ue3-packer types` dumps **one line per export**, and almost all of the 185,659 in
 `CrimeCraft.u` are functions, constants and string buffers that the generator **never
 looks at**. Versioning the whole dump is 16 MB to store what fits in less than half.
 

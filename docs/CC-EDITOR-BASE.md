@@ -7,7 +7,7 @@
 > the next developer than a blank page — **and a plausible answer nobody checked is worth
 > less than either.**
 >
-> The same applies to `UE3-PACKAGE-FORMAT.md` § *If you are writing a loader*: it says
+> The same applies to `CC-PACKAGE-FORMAT.md` § *If you are writing a loader*: it says
 > what is finished and what is not, for exactly this reason.
 
 ---

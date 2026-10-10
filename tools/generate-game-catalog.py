@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Convierte la salida cruda de `u3pack tipos` sobre un paquete del juego en la
+Convierte la salida cruda de `ue3-packer types` sobre un paquete del juego en la
 entrada que lee `generate-stubs.py`.
 
 POR QUE HACE FALTA
 ------------------
-`u3pack tipos` vuelca **una linea por exportacion**, y de las 185.659 de
+`ue3-packer types` vuelca **una linea por exportacion**, y de las 185.659 de
 `CrimeCraft.u` casi todas son funciones, constantes y buffers de texto que el
 generador **no mira**. Versionar el volcado entero son 16 MB para guardar lo
 que cabe en menos de la mitad.
@@ -27,7 +27,7 @@ orden de los miembros de un struct **es su layout**. Un `sort -u` lo destruye en
 silencio, y ya paso una vez.
 
 Uso:
-    u3pack tipos <paquete>.u > crudo.txt
+    ue3-packer types <paquete>.u > crudo.txt
     python tools/generate-game-catalog.py crudo.txt tools/tipos-crimecraft.txt
 """
 import io
@@ -41,7 +41,7 @@ PROPIEDADES = ("ObjectProperty", "ClassProperty", "InterfaceProperty",
                "StrProperty", "ByteProperty")
 SIN_TIPO = ("StructProperty", "ArrayProperty")
 
-CABECERA = """# GENERADO por `u3pack tipos` sobre los paquetes del JUEGO, y filtrado.
+CABECERA = """# GENERADO por `ue3-packer types` sobre los paquetes del JUEGO, y filtrado.
 #
 # Formato: genero<TAB>nombre<TAB>contenedor.
 #
@@ -57,7 +57,7 @@ CABECERA = """# GENERADO por `u3pack tipos` sobre los paquetes del JUEGO, y filt
 # los miembros de un struct ES su layout.
 #
 # Para regenerarlo:
-#   u3pack tipos <CookedPC>/CrimeCraft.u > crudo.txt
+#   ue3-packer types <CookedPC>/CrimeCraft.u > crudo.txt
 #   python tools/generate-game-catalog.py crudo.txt tools/tipos-crimecraft.txt
 """
 

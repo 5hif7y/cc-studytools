@@ -10,10 +10,11 @@ repackages a game executable.
 
 ## What this is
 
-Two things, and they are separate on purpose:
+Directories, and they are separate on purpose:
 
-| | |
+| Directory | Note |
 | --- | --- |
+| **`minimal-launcher-win32`** | A minimal, experimental launcher built in C++ and Win32 to facilitate running the game with a specific <mode> and <map> combination. |
 | **`docs/`** | **Format specifications** — the byte-level layout of a UE3 package, how to walk its tables, and what is still unknown. Written so that someone with a hex editor and no tooling can follow along |
 | **`tools/`** | **Instrumentation** — one small tool per question, each with its own manual |
 
@@ -23,21 +24,13 @@ exist because a specific question needed answering, and each one says in its own
 
 ---
 
-## Why the documents are in English
-
-They are meant to be read by anyone working with UE3 packages, not only by whoever
-wrote them. **The prose is English; the identifiers, the field names and the byte
-offsets are the engine's own** and are not translated anywhere.
-
----
-
 ## The one rule that matters
 
 > **Every number in these documents was measured against a real file, and the document
 > says which file.**
 
 Where something is *not* known, it is written down as unknown **rather than guessed
-at** — see `docs/UE3-PACKAGE-FORMAT.md` § *Open questions*. A plausible number that
+at** — see `docs/CC-PACKAGE-FORMAT.md` § *Open questions*. A plausible number that
 nobody checked is worse than an admitted gap: it gets built on.
 
 The specifications also carry **arithmetic self-checks** — identities that must hold
@@ -50,7 +43,7 @@ one command instead of trusting it.
 
 | If you want to… | read |
 | --- | --- |
-| **write a loader for these packages** | **read [`docs/UE3-PACKAGE-FORMAT.md`](docs/UE3-PACKAGE-FORMAT.md) § *If you are writing a loader* FIRST** — it says what is finished and what is not, so the gap is a known quantity |
+| **write a loader for these packages** | **read [`docs/CC-PACKAGE-FORMAT.md`](docs/CC-PACKAGE-FORMAT.md) § *If you are writing a loader* FIRST** — it says what is finished and what is not, so the gap is a known quantity |
 | understand the container layout | the same file, § 1–4 |
 | know which offsets are still unverified | the same file, § *Open questions* |
 | know what a `.ccmap` is | the same file, § *Map packages* |
@@ -84,7 +77,7 @@ obtained from the game itself.
 
 The package reading is independent — it does not link against the engine. It was
 written after the engine's own loader was measured to desynchronise on some cooked
-packages, and the decision is documented in `docs/UE3-PACKAGE-FORMAT.md`.
+packages, and the decision is documented in `docs/CC-PACKAGE-FORMAT.md`.
 
 `kismet-analyzer` by Truman Kilen ([trumank](https://github.com/trumank)) is the UE4
 original this work descends from; the port to UE3 is a separate repository.
