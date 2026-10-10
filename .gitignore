@@ -1,0 +1,21 @@
+# Binaries, build output and extracted game data are NOT distributed here.
+#
+# `__pycache__` TAMBIEN, y no por limpieza: el `.gitignore` de la RAIZ ya lo
+# excluye, pero **aqui no aplica** -- quien haga `git init` en esta carpeta usa
+# ESTE fichero y solo este. Sin esta linea, el bytecode compilado de `paquete.py`
+# y `modificadores.py` se publicaria.
+__pycache__/
+*.pyc
+
+*.dll
+*.exe
+*.pdb
+*.obj
+*.lib
+build/
+Binaries/
+CookedPC/
+*.ccmap
+*.ccpk
+*.u
+!docs/**/*.md
